@@ -8,10 +8,10 @@
 #Comparing all elements of the cards
 def check_set():
     number_check = checkelement (Card1.number, Card2.number, Card3.number)
-    shape_check = checkelement (Card1.shape, Card2.shape, Card3.shape)
-    pattern_check = checkelement (Card1.pattern, Card2.pattern, Card3.pattern)
+    symbol_check = checkelement (Card1.symbol, Card2.symbol, Card3.symbol)
+    shading_check = checkelement (Card1.shading, Card2.shading, Card3.shading)
     colour_check = checkelement (Card1.colour, Card2.colour, Card3.colour)
-    if colour_check == True and shape_check == True and number_check == True and pattern_check == True:
+    if colour_check == True and symbol_check == True and number_check == True and shading_check == True:
         return True
     return False
 
