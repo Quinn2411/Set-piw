@@ -1,6 +1,6 @@
 # Plan van aanpak
-# Stap 1 = Class maken voor de kaartjes en zorgen dat we code hebben die checkt of het een set is of niet.
-# Stap 2 = programma dat alle sets vindt. 
-# Stap 3 = programma dat 1 set vindt
-# Stap 4 = Zorgen dat we maar 12 kaarten tegelijk hebben in het programma
-# Stap 5 = visualisatie
+# STEP 1 = CLASS: make a class of cards that supports at least property comparison -> represent cards as a list
+# STEP 2 = CHECK: write an algorithm that checks if a given collection of 3 cards (given by the user) is indeed a set (use property comparison)
+# STEP 3 = FINDALLSETS: write an algorithm to find all sets from a given collection of 12 cards (so: find all sets on the table)
+# STEP 4 = FINDONESET: write an algorithm that finds one set, thus write an algorithm that takes one set from the list we obtained by step 3, and present it to the player (once the player has run out of time)
+# STEP 5 = VISUALISATION
