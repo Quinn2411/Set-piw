@@ -57,9 +57,8 @@ class Deck:
       colour=["green","purple","red"]
       self._cards=[cards(a,b,c,d) for a in number for b in symbol for c in shading for d in colour ]
       return self._cards
-  
+  table=[]
    def Draw(self):
-      table=[]
       for i in range(0,12):
          table.append(self._cards.pop())
       return table
