@@ -1,7 +1,7 @@
 from Check_Set import check_set, checkelement
 from Card import cards, Deck
 
-#Writing a function to find sets
+#Writing a function to find all sets on the table
 def findset(table):
     setsontable = []    
     for i, card1 in enumerate(table):
