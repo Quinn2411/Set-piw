@@ -1,17 +1,17 @@
-class cards:
-   def __init__(self,number,symbol,shading,colour):
+class kaarten:
+   def __init__(self,number,symbool,shading,colour):
       self._number=number
-      self._symbol=symbol
+      self._symbool=symbool
       self._shading=shading
       self._colour=colour
    def __repr__(self):
-      return self.number +" "+ self.symbol+" " + self.shading +" "+ self.colour
+      return self.number +" "+ self.symbool+" " + self.shading +" "+ self.colour
    @property
    def number(self):
       return self._number
    @property
-   def symbol(self):
-      return self._symbol
+   def symbool(self):
+      return self._symbool
    @property
    def shading(self):
       return self._shading
@@ -24,12 +24,12 @@ class cards:
          self._number=number
       else:
          print ("That's not a number")
-   @symbol.setter
-   def symbol(self,symbol):
-      if symbol in ["diamond","wave","oval"]:
-         self._symbol=symbol
+   @symbool.setter
+   def symbool(self,symbool):
+      if symbool in ["diamond","wave","oval"]:
+         self._symbool=symbool
       else:
-         print ("That's not a symbol")
+         print ("That's not a symbool")
    @shading.setter
    def shading(self,shading):
       if shading in ["filled","empty","striped"]:
@@ -45,26 +45,29 @@ class cards:
 import random
 class Deck:
    def __init__(self):
-     self._cards=[]
+     self._kaarten=[]
      self.populate()
-     print(self._cards)
+     print(self._kaarten)
+   def _repr_(self):
+      p="".join(str(e)for e in self._kaarten)
    def __len__(self):
-      return len(self._cards)
+      return len(self._kaarten)
    def populate(self):
       number=["1","2","3"]
-      symbol=["diamond","wave","oval"]
+      symbool=["diamond","wave","oval"]
       shading=["filled","empty","striped"]
       colour=["green","purple","red"]
-      self._cards=[cards(a,b,c,d) for a in number for b in symbol for c in shading for d in colour ]
-      return self._cards
-  table=[]
+      self._kaarten=[kaarten(a,b,c,d) for a in number for b in symbol for c in shading for d in colour ]
+      return self._kaarten
+  
    def Draw(self):
+      table=[]
       for i in range(0,12):
-         table.append(self._cards.pop())
+         table.append(self._kaarten.pop())
       return table
    def shuffle(self):
-      for k in range(len(self._cards)-1,0,-1):
-         random.shuffle(self._cards)
+      for k in range(len(self._kaarten)-1,0,-1):
+         random.shuffle(self._kaarten)
       
 my_deck=Deck()
 
