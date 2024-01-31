@@ -26,13 +26,13 @@ class cards:
          print ("That's not a number")
    @symbol.setter
    def symbol(self,symbol):
-      if symbol in ["diamond","wave","oval"]:
+      if symbol in ["diamond","squiggle","oval"]:
          self._symbol=symbol
       else:
          print ("That's not a symbol")
    @shading.setter
    def shading(self,shading):
-      if shading in ["filled","empty","striped"]:
+      if shading in ["filled","empty","shaded"]:
          self._shading=shading
       else: 
          print("That's not a type of shading")
@@ -81,8 +81,8 @@ class Deck:
       return len(self._cards)
    def populate(self):
       number=["1","2","3"]
-      symbol=["diamond","wave","oval"]
-      shading=["filled","empty","striped"]
+      symbol=["diamond","squiggle","oval"]
+      shading=["filled","empty","shaded"]
       colour=["green","purple","red"]
       self._cards=[cards(a,b,c,d) for a in number for b in symbol for c in shading for d in colour ]
       return self._cards
