@@ -24,7 +24,7 @@ def find_one_set(table):
                     if check_set(card1, card2, card3):
                         return card1, card2, card3
 
-# writing a function to find all sets on the table
+# a function to find all sets on the table
 def find_all_sets(table):
     sets_on_table = []
     for i, card1 in enumerate(table._table):
