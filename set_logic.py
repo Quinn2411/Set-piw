@@ -31,7 +31,7 @@ def find_all_sets(table):
         for j, card2 in enumerate(table._table[i:]):
             for k, card3 in enumerate(table._table[j:]):
                 if card1 != card2 and card2 != card3 and card1 != card3:
-                    if check_set(card1, card2, card3) == True:
+                    if check_set(card1, card2, card3):
                         # returns set to a list of all sets on the table.
                         sets_on_table.append([card1, card2, card3])
     return sets_on_table
