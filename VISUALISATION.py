@@ -42,20 +42,10 @@ class visualcards(pygame.sprite.Sprite):
             xposition=int(140+120*(cardindexontable%7))
         self.rect=self.image.get_rect(center=(xposition,yposition))
 
-# card visualisation
-cards=pygame.sprite.Group()
-cards.add(visualcards(1,Mytable._table[0]))
-cards.add(visualcards(2,Mytable._table[1]))
-cards.add(visualcards(3,Mytable._table[2]))
-cards.add(visualcards(4,Mytable._table[3]))
-cards.add(visualcards(5,Mytable._table[4]))
-cards.add(visualcards(6,Mytable._table[5]))
-cards.add(visualcards(7,Mytable._table[6]))
-cards.add(visualcards(8,Mytable._table[7]))
-cards.add(visualcards(9,Mytable._table[8]))
-cards.add(visualcards(10,Mytable._table[9]))
-cards.add(visualcards(11,Mytable._table[10]))
-cards.add(visualcards(12,Mytable._table[11]))
+def refreshVisualCards():
+    for index in range(0,12):
+        cards.add(visualcards(index + 1,Mytable._table[index]))
+refreshVisualCards()
 
 # game loop
 run = True
