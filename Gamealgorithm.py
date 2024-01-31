@@ -1,5 +1,5 @@
-from PlayingClasses import Deck, Table, cards
-from FINDONESET import findoneset
+from Card import Deck, Table, cards
+from findoneset import findoneset
 from Check_Set import check_set, checkelement
 Mydeck=Deck()
 Deck.shuffle(Mydeck)
@@ -9,7 +9,6 @@ Table.newgame(Mytable,Mydeck)
 def main(deck, table):
     
     while len(Mydeck) > 0:
-        
         print(Mytable)
         print(len(Mydeck))
         index1,index2, index3 = input().split(",")
@@ -23,22 +22,23 @@ def main(deck, table):
             if check_set(cardv1,cardv2,cardv3)==True:
                 print("congrats you got a point!")
                 
-                Mytable.setisfound(Mydeck,cardv1,cardv2,cardv3)
-                return True
+                Mytable.setisfound(Mydeck,k[0],k[1],k[3])
             else:
-                if findoneset(Mytable) != []:
+                if findoneset(Mytable) != None:
                     
                     print('the computer found a set, so the computer got a point')
                     k=findoneset(Mytable)
                     print(k)
                     Mytable.setisfound(Mydeck,k[0],k[1],k[2])
-                    return False
                 else: 
                     print("idd leeg")
-                    Mytable.setisnotfound(Mydeck)
-            print(len(Mydeck))    
+                    Mytable.setisnotfound(Mydeck)    
             return Mytable
-        
         updatedtable = whogetsapoint(Mydeck, Mytable, cardv1, cardv2, cardv3)
-   
     return Mytable
+
+print (main(Mydeck, Mytable))
+
+ 
+
+
