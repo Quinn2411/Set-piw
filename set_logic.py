@@ -14,7 +14,7 @@ def check_element(property1, property2, property3):
         return True
     return False
 
-# writing a function to find one set on the table
+# a function to find the first set on the table
 def find_one_set(table):
     # making use of enumerate to skip checking duplicates (if card1, card2, card3 is checked we dont check card1, card3, card2 aswell)
     for i, card1 in enumerate(table._table):
