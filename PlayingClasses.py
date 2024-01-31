@@ -1,3 +1,4 @@
+#Defining a class for the cards in set so that it is possible to compare card properties
 class cards:
    def __init__(self,number,symbol,shading,colour):
       self._number=number
@@ -6,6 +7,7 @@ class cards:
       self._colour=colour
    def __repr__(self):
       return self.number +" "+ self.symbol+" " + self.shading +" "+ self.colour
+   #Creating the properties
    @property
    def number(self):
       return self._number
@@ -18,6 +20,7 @@ class cards:
    @property
    def colour(self):
       return self._colour
+   #Giving the properties attributes
    @number.setter
    def number(self,number):
       if number in ["1","2","3"]:
@@ -42,7 +45,9 @@ class cards:
          self._colour=colour
       else:
          print("That's not a colour")
+
 import random
+#TableClass for the cards in play
 class Table:
    def __init__(self):
       self._table=[]
@@ -50,6 +55,7 @@ class Table:
       card = Deck.pop(other)
       self._table.append(card)
       return self._table
+   #Refreshing the table after player input
    def setisnotfound(self,other):
       for i in range(0,3):
        self._table.pop(0)
@@ -62,6 +68,7 @@ class Table:
       for i in range(0,3):
          Table.fill(self,other)
       return self._table
+   #Drawing 12 cards from the deck
    def newgame(self,other):
       for i in range(0,12):
          Table.fill(self,other)
@@ -70,6 +77,7 @@ class Table:
       return p
    def __len__(self):
       return len(self._table)
+#Making a deck so the game doesn't prolong infinitely
 class Deck:
    def __init__(self):
      self._cards=[]
