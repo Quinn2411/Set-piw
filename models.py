@@ -1,4 +1,4 @@
-#importing random so we can use it later on in the shufflefunction
+# importing random so we can use it later on in the shuffle function
 import random
 
 # defining a class for the cards in set so that it is possible to compare card properties
