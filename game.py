@@ -1,6 +1,5 @@
 from models import Deck, Table, Card
-from find_one_set import find_one_set
-from check_set import check_set
+from set_logic import find_one_set, check_set
 
 # defining variables for the main function
 my_deck = Deck()
