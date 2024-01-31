@@ -95,7 +95,7 @@ class Table:
             self.fill(deck)
     
     def __repr__(self):
-        p = "\n".join(str(e)for e in self._table)
+        p = "\n".join(f"{i + 1}. {c}" for (i, c) in enumerate(self._table))
         return p
     
     def __len__(self):
