@@ -124,6 +124,7 @@ class Deck:
     
     def pop(self):
         return self._cards.pop()
+         
     # shuffling the deck by using the random.shuffle method for lists from the random module
     def shuffle(self):
         for k in range(len(self._cards)-1, 0, -1):
