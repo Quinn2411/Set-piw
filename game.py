@@ -1,5 +1,5 @@
-from Card import Deck, Table, cards
-from findoneset import findoneset
+from PlayingClasses import Deck, Table, cards
+from FINDONESET import findoneset
 from Check_Set import check_set, checkelement
 #Defining variables for the main function
 Mydeck=Deck()
