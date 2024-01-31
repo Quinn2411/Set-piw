@@ -15,37 +15,47 @@ pygame.display.set_icon(icon)
 
 # setting up the elements of the screen
 font=pygame.font.Font(None,35)
+titlefont=pygame.font.Font(None,150)
 user_input=""
 textbox=pygame.Rect(450,700,140,40)
 textbox_colour=((0,0,0))
 
 # card slots
+from PlayingClasses import Table,cards,Deck
+Mytable=Table()
+Mydeck=Deck()
+
+Table.newgame(Mytable,Mydeck)
+kaart=Mytable._table[0]
+print(type(kaart))
+testkaart=cards("1","squiggle","filled","red")
+
 class visualcards(pygame.sprite.Sprite):
-    def __init__(self,cardindexontable):
+    def __init__(self,cardindexontable,card):
         super().__init__()
-        self.image=pygame.image.load("finalproject/cards/redsquigglefilled2.gif").convert_alpha()
+        self.image=pygame.image.load('finalproject/cards/'+str(card._colour+card._symbol+card._shading+card._number)+'.gif').convert_alpha()
         if cardindexontable<7:
-            yposition=200
+            yposition=275
             xposition=int(20+120*cardindexontable)
         if cardindexontable>=7:
-            yposition=420
+            yposition=495
             xposition=int(140+120*(cardindexontable%7))
         self.rect=self.image.get_rect(center=(xposition,yposition))
 
 # card visualisation
 cards=pygame.sprite.Group()
-cards.add(visualcards(1))
-cards.add(visualcards(2))
-cards.add(visualcards(3))
-cards.add(visualcards(4))
-cards.add(visualcards(5))
-cards.add(visualcards(6))
-cards.add(visualcards(7))
-cards.add(visualcards(8))
-cards.add(visualcards(9))
-cards.add(visualcards(10))
-cards.add(visualcards(11))
-cards.add(visualcards(12))
+cards.add(visualcards(1,Mytable._table[0]))
+cards.add(visualcards(2,Mytable._table[1]))
+cards.add(visualcards(3,Mytable._table[2]))
+cards.add(visualcards(4,Mytable._table[3]))
+cards.add(visualcards(5,Mytable._table[4]))
+cards.add(visualcards(6,Mytable._table[5]))
+cards.add(visualcards(7,Mytable._table[6]))
+cards.add(visualcards(8,Mytable._table[7]))
+cards.add(visualcards(9,Mytable._table[8]))
+cards.add(visualcards(10,Mytable._table[9]))
+cards.add(visualcards(11,Mytable._table[10]))
+cards.add(visualcards(12,Mytable._table[11]))
 
 # game loop
 run = True
@@ -65,14 +75,27 @@ while run:
                 else:
                     user_input+=event.unicode
 
-    # setting up the background colour
+    # setting up the background
+    gamemessage=''
     screen.fill((0, 150, 0))
+    title_text=titlefont.render('SET', True,(255,255,255))
+    screen.blit(title_text,(440-((title_text.get_width())/2),50))
+    message_text=font.render(gamemessage, True,(255,255,255))
 
     # setting up the textbox with the text
     pygame.draw.rect(screen,textbox_colour,textbox,2,3)
     text_surface=font.render(user_input,True,(255,255,255))
     screen.blit(text_surface,(textbox.x+6,textbox.y+7))
     textbox.w=text_surface.get_width()+11
+    textbox.x=450-(textbox.w/2)
+
+    # showing the points of poth computer and player
+    visualpointsplayer='2'
+    visualpointscomputer='5'
+    text_surface=font.render('Player: '+visualpointsplayer+' points',True,(255,255,255))
+    screen.blit(text_surface,(670,700))
+    text_surface=font.render('Computer: '+visualpointscomputer+' points',True,(255,255,255))
+    screen.blit(text_surface,(20,700))
 
     cards.draw(screen)
 
