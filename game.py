@@ -27,8 +27,8 @@ def get_input_cards(table):
         print("invalid input, try again in the form a,b,c")
         return None, None, None
 
-points = 0
-computerpoints = 0
+player_points = 0
+computer_points = 0
 
 # letting the game repeat until all cards have been on the table once
 while len(my_deck) > 0:
@@ -42,13 +42,13 @@ while len(my_deck) > 0:
     
     # checking if the given cards form a set
     if check_set(card1, card2, card3):
-        points += 1
-        print(f"congrats you got a point\n the score is now: computer: {computerpoints}, player: {points}")
+        player_points += 1
+        print(f"congrats you got a point\n the score is now: computer: {computer_points}, player: {player_points}")
         my_table.remove_set(my_deck, card1, card2, card3)
     else:
         if find_one_set(my_table) != None:
-            computerpoints += 1
-            print(f"the computer found a set, so the computer got a point\n the score is now: computer: {computerpoints}, player: {points}")
+            computer_points += 1
+            print(f"the computer found a set, so the computer got a point\n the score is now: computer: {computer_points}, player: {player_points}")
             card1, card2, card3 = find_one_set(my_table)
             print(f"{card1}, {card2}, {card3}")
             
