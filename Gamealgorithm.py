@@ -8,6 +8,8 @@ Mytable=Table()
 Table.newgame(Mytable,Mydeck)
 
 def main(deck, table):
+    points = 0
+    computerpoints = 0
     #Letting the game repeat until all cards have been on the table once
     while len(Mydeck) > 0:
         print(Mytable)
@@ -23,15 +25,16 @@ def main(deck, table):
         #Checking if the given cards form a set
         def whogetsapoint(deck, table, card1, card2, card3):
             if check_set(cardv1,cardv2,cardv3)==True:
-                print("congrats you got a point!")
-                
+                points += 1
+                print("congrats you got a point, the score is now ",points,computerpoints)
                 Mytable.setisfound(Mydeck,index1,index2,index3])
             else:
                 if findoneset(Mytable) != None:
-                    
-                    print('the computer found a set, so the computer got a point')
+                    computerpoints += 1
+                    print('the computer found a set, so the computer got a point, the score is now ',points, computerpoints)
                     k=findoneset(Mytable)
                     print(k)
+                    
                     Mytable.setisfound(Mydeck,k[0],k[1],k[2])
                     #Failsafe incase of CAP_Set on table
                 else: 
