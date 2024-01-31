@@ -48,7 +48,7 @@ class Table:
       self._table=[]
    def fill(self,other):
       card = Deck.pop(other)
-      self._table.append(Deck.pop(other))
+      self._table.append(card)
       return self._table
    def setisnotfound(self,other):
       for i in range(0,3):
