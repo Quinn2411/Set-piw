@@ -50,7 +50,7 @@ while len(my_deck) > 0:
             computerpoints += 1
             print(f"the computer found a set, so the computer got a point\n the score is now: computer: {computerpoints}, player: {points}")
             card1, card2, card3 = find_one_set(my_table)
-            print(card1, card2, card3)
+            print(f"{card1}, {card2}, {card3}")
             
             my_table.remove_set(my_deck, card1, card2, card3)
         # failsafe incase of CAP_Set on table
