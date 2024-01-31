@@ -113,6 +113,7 @@ class Deck:
    
     def __len__(self):
         return len(self._cards)
+         
     # a populate function, so we can fill the deck
     def populate(self):
         number = ["1", "2", "3"]
