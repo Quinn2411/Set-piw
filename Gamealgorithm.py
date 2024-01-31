@@ -1,5 +1,5 @@
-from Card import Deck, Table, cards
-from findoneset import findoneset
+from PlayingClasses import Deck, Table, cards
+from FINDONESET import findoneset
 from Check_Set import check_set, checkelement
 #Defining variables for the main function
 Mydeck=Deck()
@@ -25,7 +25,7 @@ def main(deck, table):
             if check_set(cardv1,cardv2,cardv3)==True:
                 print("congrats you got a point!")
                 
-                Mytable.setisfound(Mydeck,k[0],k[1],k[3])
+                Mytable.setisfound(Mydeck,index1,index2,index3])
             else:
                 if findoneset(Mytable) != None:
                     
