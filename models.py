@@ -79,6 +79,7 @@ class Table:
             self._table.pop(0)
         for i in range(0, 3):
             self.fill(deck)
+             
     # a function to describe what to do if either the computer or the player found a set, that removes the cards that form a set, and fills it with new cards
     def remove_set(self, deck, card1, card2, card3):
         self._table.remove(card1)
@@ -118,12 +119,12 @@ class Deck:
         symbol = ["diamond", "squiggle", "oval"]
         shading = ["filled", "empty", "shaded"]
         colour = ["green", "purple", "red"]
-        #use the listcomprehensions for the built- in function list, so that we can fill the deck in one line
+        # use the list comprehensions for the built- in function list, so that we can fill the deck in one line
         self._cards = [Card(a, b, c, d) for a in number for b in symbol for c in shading for d in colour]
     
     def pop(self):
         return self._cards.pop()
-    #shuffling the deck by using the random.shuffle method for lists from the random module
+    # shuffling the deck by using the random.shuffle method for lists from the random module
     def shuffle(self):
         for k in range(len(self._cards)-1, 0, -1):
             random.shuffle(self._cards)
