@@ -2,7 +2,7 @@ import string
 import pygame
 # card slots
 from models import Table, Card, Deck
-from set_logic import check_set, find_one_set
+from set_logic import find_one_set, check_set
 
 pygame.init()
 attempt = None
@@ -93,8 +93,6 @@ def main(deck, table, card1, card2, card3):
     card1, card2, card3 = get_input_cards(my_table)
     player_points = 0
     computer_points = 0
-    if card1 == None:
-        return my_table
 
         # checking if the given cards form a set
     if check_set(card1, card2, card3):
@@ -137,7 +135,8 @@ while run:
                 if event.key == pygame.K_RETURN:
                     actual_user_input = user_input
                     attempt = actual_user_input.split(",")
-                    # user_input = ""
+                    if len(attempt) != 3:
+                        continue
                     print(actual_user_input)
                     displayed_message = main(my_deck, my_table, attempt[0], attempt[1], attempt[2])
                     if displayed_message == "congrats you found a set and got a point, make another attempt":
