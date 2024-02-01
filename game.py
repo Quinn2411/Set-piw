@@ -8,7 +8,7 @@ my_deck.shuffle()
 my_table = Table()
 my_table.new_game(my_deck)
 
-# putting the input in an index to make the code runs smoother and is more userfriendly
+# putting the input in an index to make the code runs smoother and is more userfriendly, and using try to handle incorrect inputs
 def get_input_cards(table):
     try:
         index1, index2, index3 = input().split(",")
@@ -35,7 +35,7 @@ while len(my_deck) > 0:
     print(my_table)
     print(len(my_deck))
     
-    # using Try and except to deal with incorrect inputs, so it doesn't crash the game
+    # failsafe in case of incorrect input
     card1, card2, card3 = get_input_cards(my_table)
     if card1 == None:
         continue
